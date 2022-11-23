@@ -194,18 +194,25 @@
 
 (defn RunCtagsCmd [opts] (RunCtags (unpack opts.fargs)))
 
-(vim.api.nvim_create_user_command :CtagsPackageCurWorldScope
-                                  RunCtagsPackageCurWorldScope
-                                  {:nargs "*" :range true :complete :file})
-
-(vim.api.nvim_create_user_command :CtagsRoot RunCtagsRoot
-                                  {:nargs "*" :range true :complete :file})
-
-(vim.api.nvim_create_user_command :CtagsPackage RunCtagsPackage
-                                  {:nargs "*" :range true :complete :file})
-
-(vim.api.nvim_create_user_command :CtagsFile RunCtagsFile
-                                  {:nargs "*" :range true :complete :file})
-
-(vim.api.nvim_create_user_command :CtagsCore RunCtagsCmd
-                                  {:nargs "*" :range true :complete :file})
+(defn init []
+      (vim.api.nvim_create_user_command :CtagsPackageCurWorldScope
+                                        RunCtagsPackageCurWorldScope
+                                        {:nargs "*"
+                                         :range true
+                                         :complete :file})
+      (vim.api.nvim_create_user_command :CtagsRoot RunCtagsRoot
+                                        {:nargs "*"
+                                         :range true
+                                         :complete :file})
+      (vim.api.nvim_create_user_command :CtagsPackage RunCtagsPackage
+                                        {:nargs "*"
+                                         :range true
+                                         :complete :file})
+      (vim.api.nvim_create_user_command :CtagsFile RunCtagsFile
+                                        {:nargs "*"
+                                         :range true
+                                         :complete :file})
+      (vim.api.nvim_create_user_command :CtagsCore RunCtagsCmd
+                                        {:nargs "*"
+                                         :range true
+                                         :complete :file}))
